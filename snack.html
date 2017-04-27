@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>贪食蛇</title>
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        div{
+            background-color:brown;
+            width:50px;
+            height:50px;
+            position:absolute;
+            left:2px;
+            z-index:1;
+        }
+        td{
+            border:1px solid blue;
+            width:48px;
+            height:48px;
+        }
+    </style>
+</head>
+<body>
+    <div id="pannel" style="width:100%; height:100%; z-index:1; opacity:0.5">
+        <h1 style="text-align: center" id="title">贪吃蛇游戏<small id="s">分数：0</small></h1>
+    </div>
+<script>
+
+//    //创建r行c列的表格
+//    document.write("<table cellspacing='0px'>");
+//    for(var r=0;r<25;r++){
+//        document.write("<tr>");
+//        for(var c=0;c<25;c++){
+//            document.write("<td></td>");
+//        }
+//        document.write("</tr>");
+//    }
+//    document.write("</table>");
+    var pannel=document.getElementById("pannel");
+    var allnode=new Array();//保存所有的身体
+    var headnode=null;//保存蛇头
+    var foodnode=null;//保存食物
+    var score=0;//0 right 1 left  2up 3 down
+    //定义函数添加一个div
+    function createNode(type){
+        var row=parseInt(Math.random()*10);
+        var col=parseInt(Math.random()*10);
+//在row行 col列添加一个node
+        var obj=document.createElement("div");
+        obj.style.left=col*50+"px";
+        obj.style.top=row*50+"px";
+        pannel.appendChild(obj);//把这个div添加到body
+        if(type==1){
+            obj.style.backgroundColor="black";//蛇头部
+        }
+        if(type==0){
+            obj.style.backgroundColor="blue";//食物
+        }
+        if(type==2){
+            obj.style.backgroundColor="#00FFFF";//身体
+        }
+//返回这个对象
+        return obj;
+    }
+    //先在页面中添加一个蛇头部
+    headnode=createNode(1);
+    headnode.className=0;//0 right 1 left 2up 3down
+    foodnode=createNode(0);//食物
+    //上贪吃蛇移动
+    function moveSnake(){
+//移动所有的身体
+//后一块的位置=前一块的位置
+        if(allnode.length>0)
+        {
+            for (var n = allnode.length-1;n>= 0;n--)
+            {
+                switch (parseInt(allnode[n].className)) {
+                    case 0://right
+                        allnode[n].style.left = (parseInt(allnode[n].style.left) + 50) + "px";
+                        break;
+                    case 1://left
+                        allnode[n].style.left = (parseInt(allnode[n].style.left) - 50) + "px";
+                        break;
+                    case 2://up
+                        allnode[n].style.top = (parseInt(allnode[n].style.top) - 50) + "px";
+                        break;
+                    case 3://down
+                        allnode[n].style.top = (parseInt(allnode[n].style.top) + 50) + "px";
+                        break;
+                }
+                if (n>0){
+                    allnode[n].className = allnode[n-1].className;//等于上一个身体的方向
+                }
+                else {
+                    allnode[0].className = headnode.className;
+                }
+            }
+       }
+//获取蛇头
+        var headdiv=headnode;//第一个元素是头
+//获取px和py
+//var px=headdiv.style.left.substr(0,headdiv.style.left.length-2);
+        var px=parseInt(headdiv.style.left);
+        var py=parseInt(headdiv.style.top);
+        switch(parseInt(headnode.className)){
+            case 0://right
+                headdiv.style.left=(px+50)+"px";
+                break;
+            case 1://left
+                headdiv.style.left=(px-50)+"px";
+                break;
+            case 2://up
+                headdiv.style.top=(py-50)+"px";
+                break;
+            case 3://down
+                headdiv.style.top=(py+50)+"px";
+                break;
+        }
+//当蛇头和食物碰到
+        if(headdiv.style.left==foodnode.style.left&&
+            headdiv.style.top==foodnode.style.top){
+//加分
+            score+=100;
+            var s=document.getElementById("s");
+            s.innerHTML="分数："+score;
+            var newbody=createNode(2);//产生一个新的身体
+//身体在蛇的最后
+            var lastbody=null;
+            if(allnode.length==0){
+                lastbody=headnode;
+            }else{
+                lastbody=allnode[allnode.length-1];
+            }
+            newbody.className=lastbody.className;//新的身体和最后一个身体方向一样
+            switch(parseInt(lastbody.className)){
+                case 0://右
+                    newbody.style.left=(parseInt(lastbody.style.left)-50)+"px";
+                    newbody.style.top=lastbody.style.top;
+                    break;
+                case 1://左
+                    newbody.style.left=(parseInt(lastbody.style.left)+50)+"px";
+                    newbody.style.top=lastbody.style.top;
+                    break;
+                case 2://上
+                    newbody.style.top=(parseInt(lastbody.style.top)+50)+"px";
+                    newbody.style.left=lastbody.style.left;
+                    break;
+                case 3://下
+                    newbody.style.top=(parseInt(lastbody.style.top)-50)+"px";
+                    newbody.style.left=lastbody.style.left;
+                    break;
+            }
+            allnode.push(newbody);
+//让食物在新的位置产生
+            foodnode.style.left=parseInt(Math.random()*10)*50+"px";
+            foodnode.style.top=parseInt(Math.random()*10)*50+"px";
+        }
+    }
+    setInterval(moveSnake,200); //每秒移动一格
+    //实现按键处理
+    document.onkeydown=function(){
+//
+        switch(event.keyCode)
+        {
+            case 37://left
+                headnode.className=1;
+                break;
+            case 38://
+                headnode.className=2;
+                break;
+            case 39:
+                headnode.className=0;
+                break;
+            case 40:
+                headnode.className=3;
+                break;
+        }
+    }
+</script>
+</body>
+</html>
+

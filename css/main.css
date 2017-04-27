@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+}
+.row{
+    margin: 0;
+    text-align: center;
+}
+.navigation{
+    height: 5.5em;
+    padding: 1em;
+    opacity: 0.9;
+}
+
+ul > li:hover{
+    background-color: black;
+    color: white;
+}
+
+img[id="logo"]{
+    float: right;
+    margin-top: 1em;
+    width: 20%;
+    height: 20%;
+}
+    /*定义动画*/
+    @keyframes myFrame{
+        0% {
+            background-color: orange;
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(1080deg);
+        }
+    }
+    @-o-keyframes myFrame{ /* Opera */
+        0% {
+            background-color: orange;
+            transform: rotate(0);            
+        }
+        100% {
+            transform:  rotate(1080deg);
+        }
+    }
+    @-moz-keyframes myFrame{ /* Old Firefox */
+        0% {
+            background-color: orange;
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(1080deg);
+        }
+    }
+    @-webkit-keyframes myFrame{ /* Safari & Chrome */
+        0% {
+            background-color: orange;
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(1080deg);
+        }
+    }
+
+img#logo{
+    animation: myFrame 5s linear 0s infinite alternate;
+    -o-animation: myFrame 5s linear 0s infinite alternate; /* Opera */ 
+    -moz-animation: myFrame 5s linear 0s infinite alternate; /* Old Firefox */
+    -webkit-animation: myFrame 5s linear 0s infinite alternate; /* Safari & Chrome */
+}
+
+#main{
+    text-align: center;
+    margin-top: 5.5em;
+}
+
+footer{
+    display: flex;
+    height: 10%;
+    flex-direction: column;
+}
+.linker{
+    padding-left: 5%;
+    flex: 5;
+}
+.author{
+    text-align: center;
+    flex: 1;
+}
+span{
+    text-shadow: 0 0 0.8em;
+    font-size: 1.3em;
+    font-weight: normal;
+}

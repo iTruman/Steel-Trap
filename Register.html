@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body{
+            margin: 0 auto;
+            background-color: gray;
+            opacity: 7;
+        }
+        h3{
+            text-align: center;
+            text-shadow: 0 0 2em black;
+        }
+        img{
+            width: 2em;
+            height: 2em;
+        }
+        .borderline {
+            background-color: white;
+            margin-top: 6em;
+            padding: 3em;
+            border: 1px solid #CCC;
+            border-radius: 10px; 
+            box-shadow: 0 1em 2em #CCC;
+            -moz-box-shadow: 0 1em 2em #CCC;
+            -webkit-box-shadow: 0 1em 2em #CCC;    
+        }
+        footer{
+            margin-top: 5em;
+            font-size: 1.2em;
+        }
+        span{
+            text-shadow: 0 0 2em black;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="container">
+        <div class="clearfix">
+            <div class="col-md-3 column">
+                
+            </div>
+            <div class="col-md-6 column borderline">
+
+                <h3>Sign<img src="image/signup.ico">Up</h3>
+                <form role="form">
+                    <div class="form-group">
+                         <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" />
+                    </div>
+                    <div class="form-group">
+                         <label for="exampleInputPassword1">Password</label>
+                         <input type="password" class="form-control" id="exampleInputPassword1" />
+                    </div>
+                    <div class="form-group">
+                         <label for="exampleInputPassword1">Password Again</label>
+                         <input type="password" class="form-control" id="exampleInputPassword1" />
+                    </div>
+                    <button type="submit" class="btn btn-default">Sign Up</button>
+                    <button type="submit" class="btn navbar-right">有账号，请登录</button>
+                </form>
+            </div>
+            <div class="col-md-3 column">
+
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <!-- 版权信息 -->
+    <div id="author" class="clearfix">
+        <div class="copyright" style="text-align: center;">
+            <p>&copy; 2017 Login All rights reserved | Design by<a class="btn" data-toggle="modal"><span>Truman ..</span></a></p>            
+        </div>    
+        <div class="modal fade" id="modal-container" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Truman简介</h4>
+                    </div>
+                    <div class="modal-body">
+                        Truman是一个Web开发爱好者 ..
+                    
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+   </body>
+</html>
