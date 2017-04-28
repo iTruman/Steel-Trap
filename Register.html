@@ -7,18 +7,24 @@
     <style>
         body{
             margin: 0 auto;
-            background-color: gray;
+            background-image: url(image/body_bg.jpg);
+            background-size: cover;
+            -o-background-size: cover;
+            -moz-background-size: cover;
+            -webkit-background-size: cover;
+            background-repeat: no-repeat;
             opacity: 7;
         }
         h3{
             text-align: center;
             text-shadow: 0 0 2em black;
+            border-bottom:1px solid #333;
         }
         img{
             width: 2em;
             height: 2em;
         }
-        .borderline {
+        .borderline{
             background-color: white;
             margin-top: 6em;
             padding: 3em;
@@ -29,7 +35,7 @@
             -webkit-box-shadow: 0 1em 2em #CCC;    
         }
         footer{
-            margin-top: 5em;
+            margin-top: 3em;
             font-size: 1.2em;
         }
         span{
@@ -42,11 +48,8 @@
 <main>
     <div class="container">
         <div class="clearfix">
-            <div class="col-md-3 column">
-                
-            </div>
+            <div class="col-md-3 column"></div>
             <div class="col-md-6 column borderline">
-
                 <h3>Sign<img src="image/signup.ico">Up</h3>
                 <form role="form">
                     <div class="form-group">
@@ -60,7 +63,7 @@
                          <label for="exampleInputPassword1">Password Again</label>
                          <input type="password" class="form-control" id="exampleInputPassword1" />
                     </div>
-                    <button type="submit" class="btn btn-default">Sign Up</button>
+                    <button type="submit" class="btn btn-default navbar-left">Sign Up</button>
                     <button type="submit" class="btn navbar-right">有账号，请登录</button>
                 </form>
             </div>
