@@ -15,7 +15,7 @@
             -o-background-size: cover;
             -moz-background-size: cover;
             -webkit-background-size: cover;
-            background-repeat: no-repeat;
+            background-repeat: repeat-y;
             opacity: 7;
         }
         h3{
@@ -36,6 +36,9 @@
             box-shadow: 0 1em 2em #CCC;
             -moz-box-shadow: 0 1em 2em #CCC;
             -webkit-box-shadow: 0 1em 2em #CCC;    
+        }
+        .right{
+            margin-left: 6em;
         }
         footer{
             margin-top: 3em;
@@ -68,7 +71,7 @@
             <div class="col-md-4 column"></div>
             <div class="col-md-4 column borderline">
                 <h3>Sign<img src="image/signup.ico">In</h3>
-                <form role="form" action="">
+                <form id="sign_in" role="form" method="" action="">
                     <div class="form-group">
                         <label>Email address</label>
                         <input type="email" class="form-control" id="in_Email1" />
@@ -77,9 +80,9 @@
                         <label>Password</label>
                         <input type="password" class="form-control" id="in_Password" />
                     </div>
-                    <button type="submit" class="btn btn-success navbar-left">Sign In</button>
                 </form>
-                <button class="btn navbar-right to_sign_up">没账号？请注册</button>
+                <button type="submit" class="btn btn-info navbar-left">Sign In</button>
+                <button class="btn right to_sign_up">没账号？请注册</button>
             </div>
             <div class="col-md-4 column"></div>     
         </div>
@@ -88,7 +91,7 @@
             <div class="col-md-4 column"></div>
             <div class="col-md-4 column borderline">
                 <h3>Sign<img src="image/signup.ico">Up</h3>
-                <form role="form" action="">
+                <form id="sign_up" role="form" method="" action="">
                     <div class="form-group">
                          <label>Email address</label>
                          <input type="email" class="form-control" id="up_Email" />
@@ -101,9 +104,9 @@
                          <label for="exampleInputPassword1">Password Again</label>
                          <input type="password" class="form-control" id="up_Password_again" />
                     </div>
-                    <button type="submit" class="btn btn-success navbar-left">Sign Up</button>
                 </form>
-                <button class="btn navbar-right to_sign_in">有账号，请登录</button>
+                <button type="submit" class="btn btn-info navbar-left">Sign Up</button>
+                <button class="btn right to_sign_in">有账号，请登录</button>
             </div>
             <div class="col-md-4 column"></div>
         </div>
@@ -114,7 +117,7 @@
     <!-- 版权信息 -->
     <div id="author">
         <div class="copyright" style="text-align: center;">
-            <p>&copy; 2017 Login All rights reserved | Design by<a class="btn" data-toggle="modal"><span>Truman ..</span></a></p>            
+            <p>&copy; 2017 Login All rights reserved | Design by<a class="btn" href="#modal-container" data-toggle="modal"><span>Truman ..</span></a></p>
         </div>    
         <div class="modal fade" id="modal-container" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -124,20 +127,20 @@
                         <h4 class="modal-title" id="myModalLabel">Truman简介</h4>
                     </div>
                     <div class="modal-body">
-                        Truman是一个Web开发爱好者 ..
-                    
+                        Truman是一个Web开发爱好者 ..    
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 </footer>
 
 </body>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.2.0.js"></script>
     <script>
         $(function() {
