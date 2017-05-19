@@ -5,7 +5,7 @@ $(
 	//轮播图定时---4秒钟
 	function carousel_auto(){
 		$('.carousel').carousel({
-			interval: 3333
+			interval: 3000
 			});
 	}
 );

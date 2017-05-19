@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>欢迎登陆</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.css">
     <style>
         html{
@@ -84,7 +85,8 @@
                 <button type="submit" class="btn btn-info navbar-left">Sign In</button>
                 <button class="btn right to_sign_up">没账号？请注册</button>
             </div>
-            <div class="col-md-4 column"></div>     
+            <div class="col-md-4 column">
+            </div>     
         </div>
         <!-- 注册 -->
         <div id="sign_up" style="display: none;" >
@@ -105,7 +107,7 @@
                          <input type="password" class="form-control" id="up_Password_again" />
                     </div>
                 </form>
-                <button type="submit" class="btn btn-info navbar-left">Sign Up</button>
+                <button type="submit" class="btn btn-info navbar-left up">Sign Up</button>
                 <button class="btn right to_sign_in">有账号，请登录</button>
             </div>
             <div class="col-md-4 column"></div>
@@ -146,14 +148,14 @@
         $(function() {
             $('.to_sign_in').on('click',function() {
                $('title').text('欢迎登陆');
-               $('#sign_up').hide(1000);
-               $('#sign_in').show(1000);
+               $('#sign_up').hide(300);
+               $('#sign_in').show(300);
            }); 
            $('.to_sign_up').on('click',function () {
                $('title').text('欢迎注册');
-               $('#sign_in').hide(1000);
-               $('#sign_up').show(1000); 
-           })    
+               $('#sign_in').hide(300);
+               $('#sign_up').show(300); 
+           });
         });
     </script>    
 </html>
